@@ -79,7 +79,8 @@ driver name=emlxs perms="* 0666 root sys" class=fibre-channel \
     alias=pciex117c,65 \
     alias=pciex117c,94 \
     alias=pciex19a2,704 \
-    alias=pciex19a2,714
+    alias=pciex19a2,714 \
+    alias pciex10df,720
 driver name=oce perms="* 0666 root sys" \
     alias=pciex19a2,700 \
     alias=pciex19a2,710

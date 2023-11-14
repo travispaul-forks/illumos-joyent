@@ -136,6 +136,7 @@ typedef enum emlxs_adapter
 
 	/* BE4 (57) */
 	OCe12104,	/* 4-Port 2xNIC +2xFCoE */
+	D3255A11,	/* 4-Port 4xNIC Fujitsu branded */
 } emlxs_adapter_t;
 
 
@@ -271,8 +272,10 @@ typedef enum emlxs_adapter
 #define	PCI_SSDID_OCe11101		0x0714
 #define	PCI_SSDID_OCe11102		0x0714 /* Identified by cache_line */
 
+
 /* 0724: BE4 (Skyhawk) */
 #define	PCI_DEVICE_ID_BE4		0x0724
+#define	PCI_SSDID_D3255A11		0x0720
 #define	PCI_SSDID_OCe12104		0xEF81
 
 /* E200: Lancer FC Gen5 */
@@ -2062,6 +2065,25 @@ emlxs_model_t   emlxs_pci_model[] =
 		PCI_SSDID_OCe12104,
 		"OCe12104",
 		"Emulex OneConnect OCe12104 10Gb 2-port FCoE HBA",
+		"Emulex",
+		EMLXS_INTX_SUPPORTED | EMLXS_MSI_SUPPORTED |
+			EMLXS_MSIX_SUPPORTED | EMLXS_E2E_SUPPORTED,
+		EMLXS_BE4_CHIP,
+		FW_NOT_PROVIDED,
+		EMLXS_INTR_NO_LIMIT,
+		EMLXS_SLI4_MASK,
+		EMLXS_MULTI_CHANNEL,
+		NULL_PROG_TYPES,
+	},
+
+	/* Fujitsu D3255-A11 Emulex (Skyhawk) */
+	{
+		D3255A11,
+		PCI_VENDOR_ID_OCE,
+		PCI_VENDOR_ID_EMULEX,
+		PCI_SSDID_D3255A11,
+		"D3255A11",
+		"Emulex OneConnect D32551-A11 1Gb 4-port FCoE HBA",
 		"Emulex",
 		EMLXS_INTX_SUPPORTED | EMLXS_MSI_SUPPORTED |
 			EMLXS_MSIX_SUPPORTED | EMLXS_E2E_SUPPORTED,
